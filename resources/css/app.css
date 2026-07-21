@@ -1,9 +1,66 @@
-@import 'tailwindcss';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import 'admin-lte/dist/css/adminlte.min.css';
+@import 'sweetalert2/dist/sweetalert2.min.css';
+@import 'datatables.net-bs5/css/dataTables.bootstrap5.min.css';
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* Custom Login Branding */
+.login-page-custom {
+    background: linear-gradient(135deg, #ffffff 0%, #fdf5e6 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
+
+.login-card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+}
+
+.login-card .card-header {
+    background: transparent;
+    border-bottom: none;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 0;
+}
+
+.login-card .card-body {
+    padding: 40px;
+}
+
+.btn-primary-custom {
+    background-color: #8B5A2B;
+    border-color: #8B5A2B;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 600;
+}
+
+.btn-primary-custom:hover {
+    background-color: #6d4621;
+    border-color: #6d4621;
+}
+
+.form-control-custom {
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.text-primary-custom {
+    color: #8B5A2B !important;
+}
+
+.login-footer {
+    margin-top: 30px;
+    color: #666;
+    font-size: 14px;
+}
+
