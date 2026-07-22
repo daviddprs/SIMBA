@@ -22,16 +22,16 @@
         </div>
     </div>
 
-    {{-- Total Pengguna --}}
+    {{-- Total Video --}}
     <div class="bg-white rounded-2xl p-6 flex items-center gap-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);">
         <div class="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style="background: linear-gradient(135deg, #6366f120, #6366f110);">
             <svg class="w-7 h-7 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
             </svg>
         </div>
         <div>
-            <p class="text-sm text-gray-500 font-medium">Total Pengguna</p>
-            <p class="text-3xl font-bold text-gray-800 mt-0.5">{{ number_format($totalUser) }}</p>
+            <p class="text-sm text-gray-500 font-medium">Total Video</p>
+            <p class="text-3xl font-bold text-gray-800 mt-0.5">{{ number_format($totalVideo) }}</p>
         </div>
     </div>
 
@@ -45,6 +45,7 @@
         <div>
             <p class="text-sm text-gray-500 font-medium">Aksi Cepat</p>
             <a href="{{ route('berita.create') }}" class="text-sm font-semibold mt-0.5 block" style="color: #148F9A;">+ Tambah Berita Baru</a>
+            <a href="{{ route('video.create') }}" class="text-sm font-semibold mt-1 block" style="color: #148F9A;">+ Tambah Video Baru</a>
         </div>
     </div>
 

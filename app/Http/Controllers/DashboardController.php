@@ -13,9 +13,9 @@ class DashboardController extends Controller
     public function index()
     {
         $totalBerita = Berita::count();
-        $totalUser   = User::count();
+        $totalVideo = \App\Models\Video::count();
         $beritaTerbaru = Berita::with('user')->latest()->take(5)->get();
 
-        return view('dashboard.index', compact('totalBerita', 'totalUser', 'beritaTerbaru'));
+       return view('dashboard.index', compact('totalBerita', 'totalVideo', 'beritaTerbaru'));
     }
 }

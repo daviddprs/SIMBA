@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\VideoController; // <--- Pindahkan ke sini (paling atas)
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,10 +35,13 @@ Route::middleware('auth')->group(function () {
         'berita' => 'beritum',
     ]);
 
+    // Berita Preview
+    Route::get('/berita/{beritum}/preview', [BeritaController::class, 'preview'])->name('berita.preview');
+
     // User CRUD
     Route::resource('users', UserController::class);
 
-    // Video CRUD (Cukup letakkan rutenya saja di sini)
+    // Video CRUD
     Route::resource('video', VideoController::class);
 
     // Logout
