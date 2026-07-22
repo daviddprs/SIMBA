@@ -1,73 +1,108 @@
-# SIMBA (Sistem Informasi Manajemen Bakorwil)
+# SIMBA — Sistem Informasi Manajemen Bakorwil
 
-SIMBA adalah aplikasi Sistem Informasi Manajemen untuk Bakorwil yang dibangun menggunakan Laravel 12. Aplikasi ini dilengkapi dengan dashboard informatif dan fitur manajemen (Pegawai, Surat Masuk, Surat Keluar, dan Agenda).
-
-## Tech Stack
-- **Framework:** Laravel 12 (PHP 8.3)
-- **Frontend:** Bootstrap 5, AdminLTE 3
-- **Database:** MySQL
-- **Icons & Charts:** Font Awesome, Chart.js
-- **UI Components:** DataTables, SweetAlert2
-
-## Prasyarat
-- PHP 8.3 atau lebih baru
-- Composer
-- Node.js & NPM
-- MySQL Database
-
-## Cara Instalasi
-
-1. Clone repositori ini atau salin folder proyek.
-2. Salin file `.env.example` menjadi `.env` (jika belum ada) atau konfigurasikan `.env` yang sudah ada.
-   ```bash
-   cp .env.example .env
-   ```
-3. Sesuaikan konfigurasi database di file `.env`:
-   ```env
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=simba
-   DB_USERNAME=root
-   DB_PASSWORD=
-   ```
-4. Instal dependensi PHP:
-   ```bash
-   composer install
-   ```
-5. Instal dependensi Frontend:
-   ```bash
-   npm install
-   ```
-6. Generate application key:
-   ```bash
-   php artisan key:generate
-   ```
-7. Jalankan migrasi dan seeder untuk membuat tabel dan data dummy (termasuk akun admin):
-   ```bash
-   php artisan migrate:fresh --seed
-   ```
-8. Compile aset frontend:
-   ```bash
-   npm run build
-   ```
-
-## Cara Menjalankan Aplikasi
-
-Jalankan local development server Laravel:
-```bash
-php artisan serve
-```
-Akses aplikasi melalui browser di `http://localhost:8000` (atau sesuai konfigurasi Laragon Anda, misal: `http://simba.test`).
+Aplikasi web berbasis **Laravel** untuk pengelolaan sistem informasi di lingkungan Bakorwil.
 
 ---
 
-## Akun Login (Default Admin)
+## 🚀 Cara Instalasi
 
-Setelah menjalankan *seeder*, Anda dapat login ke dalam sistem menggunakan akun administrator berikut:
+### Persyaratan
+- PHP >= 8.1
+- Composer
+- Node.js & NPM
+- MySQL / MariaDB
 
-- **Email:** `admin@simba.com`
-- **Password:** `password`
+### Langkah Instalasi
 
-## Lisensi
-Hak Cipta &copy; 2026 SIMBA (Sistem Informasi Manajemen Bakorwil).
+```bash
+# 1. Clone repository
+git clone <url-repo> SIMBA
+cd SIMBA
+
+# 2. Install dependensi PHP
+composer install
+
+# 3. Install dependensi Node.js
+npm install
+
+# 4. Salin file environment
+cp .env.example .env
+
+# 5. Generate application key
+php artisan key:generate
+
+# 6. Konfigurasi database di file .env
+#    DB_DATABASE=simba
+#    DB_USERNAME=root
+#    DB_PASSWORD=
+
+# 7. Jalankan migrasi & seeder
+php artisan migrate --seed
+
+# 8. Build assets
+npm run dev
+```
+
+---
+
+## 🔑 Akun Default (Setelah Seeder)
+
+Setelah menjalankan `php artisan migrate --seed`, akun berikut akan tersedia:
+
+| Nama              | Email              | Password     | Role          |
+|-------------------|--------------------|--------------|---------------|
+| Administrator SIMBA | admin@simba.test | `password123` | Administrator |
+
+> ⚠️ **Penting:** Segera ganti password default setelah login pertama kali di menu **Manajemen Pengguna**.
+
+---
+
+## 🗂️ Fitur Utama
+
+- **Autentikasi** — Login & logout pengguna
+- **Manajemen Pengguna** — Tambah, edit, dan hapus akun pengguna
+- **Berita / Informasi** — Kelola konten berita dan pengumuman
+- **Dashboard** — Ringkasan data dan statistik
+
+---
+
+## 🛠️ Teknologi
+
+| Layer      | Teknologi         |
+|------------|-------------------|
+| Backend    | Laravel 12 (PHP)  |
+| Frontend   | Blade + Bootstrap |
+| Database   | MySQL / MariaDB   |
+| Build Tool | Vite + NPM        |
+
+---
+
+## 📁 Struktur Direktori Penting
+
+```
+SIMBA/
+├── app/
+│   ├── Http/Controllers/   # Controller aplikasi
+│   └── Models/             # Eloquent models
+├── database/
+│   ├── migrations/         # Skema database
+│   └── seeders/            # Data awal (termasuk akun admin)
+├── resources/
+│   └── views/              # Template Blade
+└── routes/
+    └── web.php             # Definisi routing
+```
+
+---
+
+## 🔒 Keamanan
+
+- Password disimpan dalam bentuk **hash** menggunakan `bcrypt`
+- Pengguna tidak dapat menghapus akun dirinya sendiri
+- Semua input divalidasi sebelum disimpan ke database
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dikembangkan untuk keperluan internal **Bakorwil**. Hak cipta dilindungi.
