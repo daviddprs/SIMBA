@@ -11,12 +11,14 @@ class Berita extends Model
 
     protected $table = 'berita';
 
+    // Tambahkan 'video_url' ke dalam array ini
     protected $fillable = [
         'judul',
         'slug',
         'konten',
         'gambar',
         'user_id',
+        'video_url', 
     ];
 
     /**

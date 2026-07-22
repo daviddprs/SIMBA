@@ -5,8 +5,13 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VideoController; // <--- Pindahkan ke sini (paling atas)
 
-/*Guest Routes*/
+/*
+|--------------------------------------------------------------------------
+| Guest Routes
+|--------------------------------------------------------------------------
+*/
 Route::middleware('guest')->group(function () {
     Route::get('/', function () {
         return redirect()->route('login');
@@ -32,6 +37,9 @@ Route::middleware('auth')->group(function () {
 
     // User CRUD
     Route::resource('users', UserController::class);
+
+    // Video CRUD (Cukup letakkan rutenya saja di sini)
+    Route::resource('video', VideoController::class);
 
     // Logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
